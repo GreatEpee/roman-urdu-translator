@@ -1,4 +1,4 @@
-# 🇵🇰 Roman Urdu to English AI Translator
+# Roman Urdu to English AI Translator
 
 > A Neural Machine Translation (NMT) tool designed to translate informal Roman Urdu into professional English.
 
