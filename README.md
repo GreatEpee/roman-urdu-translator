@@ -2,7 +2,7 @@
 
 > A Neural Machine Translation (NMT) tool designed to translate informal Roman Urdu into professional English.
 
- **Live Demo:** [Click Here to Use the App](https://ugabooga-roman-urdu-translator.hf.space/?logs=container&__theme=dark&deep_link=CYKdbXmqqog)
+ **Live Demo:** [Click Here to Use the App](https://huggingface.co/spaces/ugabooga/roman-urdu-translator)
 
 ## Architecture
 - **Model:** Qwen 2.5-72B-Instruct (State-of-the-art Open Source LLM)
