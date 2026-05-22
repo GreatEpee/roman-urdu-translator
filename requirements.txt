@@ -1,2 +1,6 @@
 gradio
 huggingface_hub
+sacrebleu
+python-dotenv
+groq
+matplotlib
