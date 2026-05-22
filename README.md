@@ -4,6 +4,8 @@
 
  **Live Demo:** [Click Here to Use the App](https://huggingface.co/spaces/ugabooga/roman-urdu-translator)
 
+<img width="1907" height="393" alt="Screenshot 2026-05-22 145718" src="https://github.com/user-attachments/assets/451b47b7-319b-4d0e-b44d-b4c342d384a5" />
+
 ---
 
 ## Re-Engineered Architecture
@@ -11,6 +13,7 @@
 * **Prompt Strategy:** Few-Shot In-Context Learning with explicit role guardrails to isolate command verbs from translation targets.
 * **Frontend UI:** Gradio (Python)
 * **Hosting Pipeline:** Hugging Face Spaces
+* Implemented prompt hardening to handle adversarial inputs and instruction injection attempts
 
 ---
 
