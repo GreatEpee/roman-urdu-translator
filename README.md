@@ -43,7 +43,7 @@ The complete benchmark breakdown is exported automatically to your local reposit
 
 ### 1. Clone the Repository
 ```
-git clone [https://github.com/GreatEpee/roman-urdu-nlp-translator.git](https://github.com/GreatEpee/roman-urdu-nlp-translator.git)
+git clone [https://github.com/GreatEpee/roman-urdu-nlp-translator.git]
 cd roman-urdu-nlp-translator
 ```
 
@@ -66,4 +66,21 @@ source venv/bin/activate
 Dependencies:
 ```
 pip install -r requirements.txt
+```
+
+### 3. Setup Infrastructure Keys
+Create a .env file in the root directory and append your access token:
+```
+GROQ_API_KEY=gsk_your_actual_groq_key_here
+```
+
+### 4. Execute System Components
+To run the live interactive Gradio dashboard locally:
+```
+python app.py
+```
+
+To execute the production sequential testing harness and regenerate plots:
+```
+python evaluate_translator.py
 ```
