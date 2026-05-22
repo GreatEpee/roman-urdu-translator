@@ -1,41 +1,69 @@
-# Roman Urdu to English AI Translator
+# 🇵🇰 Roman Urdu to English AI Translator
 
-> A Neural Machine Translation (NMT) tool designed to translate informal Roman Urdu into professional English.
+> A Groq-accelerated Neural Machine Translation (NMT) tool engineered to convert code-mixed, informal Roman Urdu into professional English.
 
  **Live Demo:** [Click Here to Use the App](https://huggingface.co/spaces/ugabooga/roman-urdu-translator)
 
-## Architecture
-- **Model:** Qwen 2.5-72B-Instruct (State-of-the-art Open Source LLM)
-- **Frontend:** Gradio (Python)
-- **Deployment:** Hugging Face Spaces (Serverless CPU)
-- **API:** Hugging Face Inference API
+---
+
+## Re-Engineered Architecture
+* **Inference Engine:** `Llama-3.1-8b-instant` via **Groq LPU** (Language Processing Unit) Infrastructure.
+* **Prompt Strategy:** Few-Shot In-Context Learning with explicit role guardrails to isolate command verbs from translation targets.
+* **Frontend UI:** Gradio (Python)
+* **Hosting Pipeline:** Hugging Face Spaces
+
+---
+
+## Evaluation & Performance Metrics
+To stress-test the translation pipeline beyond standard "golden-path" sentences, the system was sequentially evaluated against a curated **N=30 multi-complexity benchmark dataset** spanning casual dialogue, CS/ML technical jargon, heavy code-mixing, and localized idiomatic slang.
+
+Linguistic accuracy was mathematically verified using the industry-standard `sacrebleu` library against natural human-written references.
+
+### Production Results
+* **True Average Inference Latency:** `0.1876 seconds` (Ultra-low latency powered by Groq LPUs)
+* **BLEU Score:** `49.02` (High structural translation fidelity on messy, out-of-vocabulary real-world text)
+* **chrF Score:** `64.78` (Character n-gram F-score validating robust handling of phonetic spelling inconsistencies)
+
+### Performance Visualization
+The complete benchmark breakdown is exported automatically to your local repository directory upon running the evaluation suite:
+
+<img width="1089" height="489" alt="translator_performance" src="https://github.com/user-attachments/assets/c28c3e05-a4c5-4ebf-a2ce-22f816d0be0c" />
+
+---
 
 ## How It Works
-1. **Input:** User enters Roman Urdu (e.g., *"Yara python seekhna mushkil hai kya?"*)
-2. **Prompt Engineering:** The app injects a system prompt to enforce "Professional Translator" behavior.
-3. **Inference:** The Qwen model processes the tokenized input and predicts the English translation.
-4. **Output:** Clean English text (e.g., *"Friend, is it difficult to learn Python?"*)
-<img width="1748" height="634" alt="Screenshot 2026-02-01 115606" src="https://github.com/user-attachments/assets/d626fef2-2cb6-49b5-8b46-fc2efdbfbda8" />
-<img width="1686" height="570" alt="Screenshot 2026-02-01 115448" src="https://github.com/user-attachments/assets/e5ef92a4-d48d-43f1-adb1-2988e0467525" />
+1. **Input Layer:** Captures raw, phonetically unstable Roman Urdu (e.g., *"Frontend aur backend ki API integration masla kar rahi hai."*)
+2. **Context Guardrailing:** Injects a strict translation system instruction containing negative constraints to prevent the model from breaking its translation role when encountering English action words (e.g., *explain*, *fix*, *check*).
+3. **Hardware Acceleration:** Dispatches token sequences to Groq's LPU hardware instances, securing near-instantaneous output.
+4. **Deterministic Target Output:** Outputs polished English text (*"The frontend and backend API integration is causing problems."*)
 
-## Local Installation
-1. Clone the repo:
-   ```
-   git clone https://github.com/GreatEpee/roman-urdu-nlp-translator.git
-   ```
-2. Install Dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Set your API Key:
-   ```
-   # Linux/Mac
-   export HF_TOKEN="your_huggingface_key_here"
+---
 
-   # Windows (PowerShell)
-   $env:HF_TOKEN="your_huggingface_key_here"
-   ```
-4. Run the app:
-   ```
-   python app.py
-   ```
+## Local Installation & Benchmarking
+
+### 1. Clone the Repository
+```
+git clone [https://github.com/GreatEpee/roman-urdu-nlp-translator.git](https://github.com/GreatEpee/roman-urdu-nlp-translator.git)
+cd roman-urdu-nlp-translator
+```
+
+### 2. Configure Environment & Dependencies
+Initialize a virtual environment and install the verified dependency stack:
+```
+python -m venv venv
+```
+
+For Windows:
+```
+venv\Scripts\activate
+```
+
+For Mac/Linux:
+```
+source venv/bin/activate
+```
+
+Dependencies:
+```
+pip install -r requirements.txt
+```
