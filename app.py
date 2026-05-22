@@ -3,12 +3,10 @@ import gradio as gr
 from dotenv import load_dotenv
 from groq import Groq
 
-# Load environment variables for local testing
 load_dotenv()
 
 groq_key = os.getenv("GROQ_API_KEY")
 
-# Initialize the Groq client
 client = Groq(api_key=groq_key)
 
 def roman_urdu_to_english(text):
